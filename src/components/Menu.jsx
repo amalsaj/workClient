@@ -190,7 +190,7 @@ const Menu = () => {
               alt="juice2"
               src={juice2}
               className="w-24 h-28 
-            xl:w-[292px] xl:h-[270px] xl:top-[1000px] xl:right-[148px] 
+            xl:w-[292px] xl:h-[270px] xl:top-[1000px] xl:right-[140px] 
             lg:w-[250px] lg:h-[230px] lg:top-[1105px] lg:right-[120px] 
             md:w-[200px] md:h-[180px] md:top-[1027px] md:right-[96px] 
             absolute right-[20px] z-20"
