@@ -1,12 +1,20 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeNav, setActiveNav] = useState("home");
+  const navigate = useNavigate(); 
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleNavigation = (path) => {
+    setActiveNav(path);
+    navigate(`/menu`); 
+    setIsOpen(false); 
   };
 
   return (
@@ -14,11 +22,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
         {/* Logo */}
         <div className="flex items-center md:absolute top-5">
-          <img
-            src={logo}
-            alt="Logo"
-            className="w-10 h-10 md:w-16 md:h-16"
-          />
+          <img src={logo} alt="Logo" className="w-10 h-10 md:w-16 md:h-16" />
           <div className="hidden md:flex flex-col ml-3">
             <div className="flex items-center">
               <h4 className="text-[#0796EF] text-3xl font-bold">DEEP</h4>
@@ -33,7 +37,7 @@ const Navbar = () => {
           {["home", "menu", "reservation", "contact"].map((item) => (
             <button
               key={item}
-              onClick={() => setActiveNav(item)}
+              onClick={() => handleNavigation(item)}
               className={`text-[16px] font-oswald font-medium ${
                 activeNav === item ? "text-[#0796EF]" : "text-white"
               } hover:text-[#0796EF]`}
@@ -72,10 +76,7 @@ const Navbar = () => {
           {["home", "menu", "reservation", "contact"].map((item) => (
             <button
               key={item}
-              onClick={() => {
-                setActiveNav(item);
-                setIsOpen(false);
-              }}
+              onClick={() => handleNavigation(item)}
               className={`block w-full py-2 text-[16px] font-oswald font-medium ${
                 activeNav === item ? "text-[#0796EF]" : "text-white"
               } hover:text-[#0796EF]`}
