@@ -25,13 +25,10 @@ const Menu = () => {
     setLoading(true);
     try {
       const response = await axios.get(`${backendUrl}/api/items/getAllItems`);
-      console.log('response: ', response);
       const filteredItem = response.data.filter(
         (item) => item.category === category
       );
-      console.log('filteredItem: ', filteredItem);
       setItem(filteredItem);
-      console.log('item: ', item);
     } catch (error) {
       console.log(error);
     } finally {
